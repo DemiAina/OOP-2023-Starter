@@ -4,8 +4,14 @@ import java.util.ArrayList;
 
 import processing.core.PApplet;
 
-public class DANI extends PApplet {
+/*
+ * Write a method called printModel() that prints the model. For the included text file of small.txt above, this is the model:
+ */
 
+
+
+public class DANI extends PApplet {
+ 
 	
 
 	public void settings() {
@@ -13,8 +19,26 @@ public class DANI extends PApplet {
 		//fullScreen(SPAN);
 	}
 
-	public void loadFile(){}
+	public void loadFile(){
+		String lines[] = loadStrings("small.txt");
 
+		for(String s: lines){
+			String[] words = split(s, " ");
+			for(String w: words){
+				
+			}
+		}
+
+	
+	
+	}
+	
+	public void printModel(){
+		
+	}
+
+
+	
     String[] sonnet;
 
     public String[] writeSonnet()
@@ -24,13 +48,15 @@ public class DANI extends PApplet {
 
 	public void setup() {
 		colorMode(HSB);
-
-       
+		loadFile();
+		printModel();
 	}
 
 	public void keyPressed() {
 
 	}
+
+	
 
 	float off = 0;
 

@@ -1,25 +1,43 @@
 package ie.tudublin;
-
 import java.util.ArrayList;
 
+
 public class Word {
+ 
+  public String word;
+  public ArrayList<Follow> follows;
 
-    private String word;
 
-    public String getWord() {
-        return word;
+  public Word(String word) {
+    this.word = word;
+    follows = new ArrayList<Follow>();
+  }
+
+  public String getWord() {
+    return word;
+  }
+
+
+  public ArrayList<Follow> getFollows() {
+    return follows;
+  }
+
+
+  public void addFollow(String word) {
+
+    for (Follow follow : follows) {
+      if (follow.getWord().equals(word)) {
+        follow.incrementCount();
+      }
     }
+    follows.add(new Follow(word));
+  }
 
-    public void setWord(String word) {
-        this.word = word;
+  public String toString() {
+    String s = word + ": ";
+    for (Follow follow : follows) {
+      s += follow.toString() + " ";
     }
-
-    ArrayList<Follow> follows = new ArrayList<Follow>();
-
-    public String toString(){
-        return word + "\t" + follows;
-    }
-
-    
-    
+    return s;
+  }
 }
